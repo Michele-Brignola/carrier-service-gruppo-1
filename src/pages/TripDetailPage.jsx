@@ -1,9 +1,10 @@
 import { dataTrip } from "../data/dataTrip";
-
-export default function TripDetailPage({ tripId, onBack }) {
+import { useParams} from "react-router";
+export default function TripDetailPage({ onBack }) {
+  const { id } = useParams();
 
   // trova il viaggio tramite id
-  const viaggio = dataTrip.find(v => v.id === tripId);
+  const viaggio = dataTrip.find(v => v.id === Number(id));
 
   // fallback sicurezza
   if (!viaggio) {
