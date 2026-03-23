@@ -1,0 +1,38 @@
+/* HOMEPAGE TRIP LIST */
+.trip-list {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.trip-list-card {
+  width: 30%;
+}
+
+.card-trip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trip-title-card {
+  font-weight: bold;
+}
+
+.trip-text-card {
+  font-size: 1.1rem;
+}
+
+.badge-trip-list {
+  font-size: 0.9rem;
+}
+
+.dates-cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1.1rem 0;
+}
