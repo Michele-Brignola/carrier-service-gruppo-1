@@ -1,4 +1,4 @@
-import { dataViaggi } from "../data/dataViaggi";
+import { dataTrip } from "../data/dataTrip";
 
 export default function TripDetailPage({ tripId, onBack }) {
 

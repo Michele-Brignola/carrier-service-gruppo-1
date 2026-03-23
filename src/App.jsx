@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 import DefaultTemplate from "./layout/DefaultLayout";
 import HomePage from "./pages/HomePage";
-import TripDetailPage from "./pages/ParticipantDetailPage";
+import TripDetailPage from "./pages/TripDetailPage";
 import ParticipantDetailPage from "./pages/ParticipantDetailPage";
 
 import "bootstrap/dist/css/bootstrap.min.css";
