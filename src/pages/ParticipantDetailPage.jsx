@@ -11,28 +11,36 @@ export default function ParticipantDetailPage() {
   }
 
   return (
-    <div>
-      <h1>Dettaglio partecipante</h1>
-      <p>
-        <strong>Nome:</strong>
-        {partecipante.name}
-      </p>
-      <p>
-        <strong>Cognome:</strong>
-        {partecipante.surname}
-      </p>
-      <p>
-        <strong>Email:</strong>
-        {partecipante.email}
-      </p>
-      <p>
-        <strong>Telefono:</strong>
-        {partecipante.phone}
-      </p>
-      <p>
-        <strong>Codice Fiscale:</strong>
-        {partecipante.tax_id}
-      </p>
+    <div className="container">
+      <div className="row">
+        <div>
+          <div className="mb-3">
+            <div className="mb-2">
+              <h1>Dettaglio partecipante</h1>
+              <span className="h2">
+                {partecipante.name} {partecipante.surname}
+              </span>
+            </div>
+          </div>
+
+          <p>
+            <strong>Email: </strong>
+            {partecipante.email}
+
+            <i class="bi bi-check-circle-fill text-success mx-2 "></i>
+          </p>
+          <p>
+            <strong>Telefono: </strong>
+            {partecipante.phone}
+            <i class="bi bi-check-circle-fill text-success mx-2 "></i>
+          </p>
+          <p>
+            <strong>Codice Fiscale: </strong>
+            {partecipante.tax_id}
+            <i class="bi bi-check-circle-fill text-success mx-2 "></i>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
