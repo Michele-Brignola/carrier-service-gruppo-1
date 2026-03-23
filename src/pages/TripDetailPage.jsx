@@ -25,14 +25,14 @@ export default function TripDetailPage({ onBack }) {
       <div className="card shadow-sm border-0">
         <div className="card-body">
 
-          <h2 className="card-title">{viaggio.nome}</h2>
+          <h2 className="card-title">{viaggio.name}</h2>
 
           <p className="card-text">
-            <strong>Data inizio:</strong> {viaggio.data_inizio}
+            <strong>Data inizio:</strong> {viaggio.start_date}
           </p>
 
           <p className="card-text">
-            <strong>Data fine:</strong> {viaggio.data_fine}
+            <strong>Data fine:</strong> {viaggio.end_date}
           </p>
 
         </div>
