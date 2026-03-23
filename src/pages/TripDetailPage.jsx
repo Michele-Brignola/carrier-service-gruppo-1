@@ -27,8 +27,7 @@ export default function TripDetailPage({ onBack }) {
 
           <h2 className="card-title">{viaggio.name}</h2>
 
-          <h2 className="card-title">{viaggio.name}</h2>
-
+          
          <img 
           src={`/${viaggio.img}`} 
           alt={viaggio.name} 
