@@ -27,6 +27,13 @@ export default function TripDetailPage({ onBack }) {
 
           <h2 className="card-title">{viaggio.name}</h2>
 
+          
+         <img 
+          src={`/${viaggio.img}`} 
+          alt={viaggio.name} 
+          className="img-fluid mb-3"
+         />
+
           <p className="card-text">
             <strong>Data inizio:</strong> {viaggio.start_date}
           </p>
