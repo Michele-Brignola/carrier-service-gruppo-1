@@ -15,7 +15,7 @@ export default function App() {
       <Route Component={DefaultTemplate}>
         <Route index Component={HomePage} />
         <Route path="trip/:id" Component={TripDetailPage} />
-        {/* <Route path="participant/:id" Component={ParticipantDetailPage} /> */}
+        <Route path="participant/:id" Component={ParticipantDetailPage} />
       </Route>
     </Routes>
   </BrowserRouter>;
