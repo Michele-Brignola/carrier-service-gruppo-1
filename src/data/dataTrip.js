@@ -16,7 +16,7 @@ export const dataTrip = [
   {
     id: 3,
     name: "Trip to Berlin",
-    img: "berlin.jpg",
+    img: "berlin.jpeg",
     start_date: "2026-09-08",
     end_date: "2026-09-19",
   },
