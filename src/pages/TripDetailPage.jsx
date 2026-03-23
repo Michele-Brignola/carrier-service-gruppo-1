@@ -3,7 +3,7 @@ import { dataTrip } from "../data/dataTrip";
 export default function TripDetailPage({ tripId, onBack }) {
 
   // trova il viaggio tramite id
-  const viaggio = dataViaggi.find(v => v.id === tripId);
+  const viaggio = dataTrip.find(v => v.id === tripId);
 
   // fallback sicurezza
   if (!viaggio) {
