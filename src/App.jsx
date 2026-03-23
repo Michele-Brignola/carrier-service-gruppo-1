@@ -1,8 +1,18 @@
+import DefaultTemplate from "./layout/DefaultLayout";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
-import './index.css'
+import "./index.css";
 
 export default function App() {
-  return <h1>Ciao</h1>;
+  <BrowserRouter>
+    <Routes>
+      <Route Component={DefaultTemplate}>
+        <Route index Component={HomePage} />
+        <Route path="trip/:id" Component={TripDetailPage} />
+        <Route path="participant/:id" Component={ParticipantDetailPage} />
+      </Route>
+    </Routes>
+  </BrowserRouter>;
 }
