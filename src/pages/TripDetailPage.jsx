@@ -30,7 +30,7 @@ export default function TripDetailPage({ onBack }) {
           <h2 className="card-title">{viaggio.name}</h2>
 
          <img 
-          src={`/img/${viaggio.img}`} 
+          src={`/${viaggio.img}`} 
           alt={viaggio.name} 
           className="img-fluid mb-3"
          />
