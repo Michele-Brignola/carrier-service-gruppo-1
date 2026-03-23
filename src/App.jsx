@@ -11,13 +11,15 @@ import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "./index.css";
 
 export default function App() {
-  <BrowserRouter>
-    <Routes>
-      <Route Component={DefaultTemplate}>
-        <Route index Component={HomePage} />
-        <Route path="trip/:id" Component={TripDetailPage} />
-        <Route path="participant/:id" Component={ParticipantDetailPage} />
-      </Route>
-    </Routes>
-  </BrowserRouter>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route Component={DefaultTemplate}>
+          <Route index Component={HomePage} />
+          <Route path="trip/:id" Component={TripDetailPage} />
+          <Route path="participant/:id" Component={ParticipantDetailPage} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
