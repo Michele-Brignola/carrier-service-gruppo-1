@@ -69,10 +69,14 @@ export default function TripDetailPage({ onBack }) {
     
        const name = e.target.name.value;
     
+       const newId = Math.max(...participants.map(p => p.id)) + 1;
+
        const newParticipant = {
-        id: Date.now(),
-         name
-        };
+       id: newId,
+       name,
+       surname: "", // opzionale
+       id_trip: [Number(id)]
+       };
 
         setParticipants([...participants, newParticipant]);
 
