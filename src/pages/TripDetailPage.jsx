@@ -1,12 +1,12 @@
 import { dataTrip } from "../data/dataTrip";
 import { useParams} from "react-router";
-import { useState } from "react";
+import { dataParticipant } from "../data/dataParticipant";
 
 export default function TripDetailPage({ onBack }) {
   const { id } = useParams();
+ const participantsForTrip = dataParticipant.filter(p => p.id_trip.includes(Number(id)));
 
-  // stato per partecipanti
-  const [participants, setParticipants] = useState([]); 
+ 
 
   // trova il viaggio tramite id
   const viaggio = dataTrip.find(v => v.id === Number(id));
@@ -65,7 +65,7 @@ export default function TripDetailPage({ onBack }) {
          name
         };
 
-       setParticipants([...participants, newParticipant]);
+       newParticipant([...participantsForTrip, newParticipant]);
 
         e.target.reset();
         }}
@@ -83,12 +83,11 @@ export default function TripDetailPage({ onBack }) {
       </form>
 
       <ul className="list-group">
-       
-       {participants.map(p => (
-      
-      <li key={p.id} className="list-group-item">{p.name}</li>
-      
-      ))}
+        {participantsForTrip.map(p => (
+       <li key={p.id} className="list-group-item">
+        {p.name} {p.surname}
+       </li>
+       ))}
       </ul>
       </div>
 
