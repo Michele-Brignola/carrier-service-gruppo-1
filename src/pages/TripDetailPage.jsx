@@ -91,17 +91,22 @@ export default function TripDetailPage({ onBack }) {
       
       </form>
 
-      <ul className="list-group">
+      <ul className="list-group mt-3">
         {participants.map(p => (
-       
-          <Link to={`/participant/${p.id}`}>
-          <li key={p.id} className="list-group-item">
-           {p.name} {p.surname}
-          </li>
-          </Link>
-       
-       ))}
-      </ul>
+      <li key={p.id} className="list-group-item list-group-item-action">
+      <Link
+        to={`/participant/${p.id}`}
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          display: "block"
+        }}
+      >
+        {p.name} {p.surname}
+      </Link>
+      </li>
+      ))}
+       </ul>
       </div>
 
      </div>
