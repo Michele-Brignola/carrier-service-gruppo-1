@@ -55,7 +55,9 @@ export default function HomePage() {
       tag: "new travel",
     };
 
-    setTrips((prev) => [...prev, newTrip]);
+    dataTrip.push(newTrip);
+
+    console.table(dataTrip);
 
     // reset dati
     setFormData({
