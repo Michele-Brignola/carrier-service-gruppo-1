@@ -75,7 +75,7 @@ export default function TripDetailPage({ onBack }) {
           className="btn btn-primary mb-3"
           onClick={() => setShowForm(!showForm)}
         >
-          {showForm ? "Chiudi" : "Aggiungi Partecipante"}
+          {showForm ? "Close" : "Add Participant"}
         </button>
 
         {showForm && (
@@ -111,7 +111,7 @@ export default function TripDetailPage({ onBack }) {
       className="form-control mb-2"
     />
 
-    <button className="btn btn-primary">Aggiungi</button>
+    <button className="btn btn-primary">Add Participant</button>
   </form>
 )}
 
