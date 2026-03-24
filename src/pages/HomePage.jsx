@@ -57,8 +57,6 @@ export default function HomePage() {
 
     dataTrip.push(newTrip);
 
-    console.table(dataTrip);
-
     // reset dati
     setFormData({
       destination: "",

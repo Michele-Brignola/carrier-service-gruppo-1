@@ -1,8 +1,9 @@
-import { useParams } from 'react-router';
-import { dataParticipant } from '../data/dataParticipant';
+import { useNavigate, useParams } from "react-router";
+import { dataParticipant } from "../data/dataParticipant";
 
 export default function ParticipantDetailPage() {
   const { id } = useParams();
+  let goBack = useNavigate();
 
   const partecipante = dataParticipant.find((p) => p.id === parseInt(id));
 
@@ -16,7 +17,12 @@ export default function ParticipantDetailPage() {
         <div className="my-5">
           <div className="mb-3">
             <div className="mb-2">
-              <h1>Dettaglio partecipante</h1>
+              <div className="d-flex justify-content-between align-items-center">
+                <h1 className="mb-4">Dettaglio partecipante</h1>
+                <button className="btn btn-primary" onClick={() => goBack(-1)}>
+                  Go Back
+                </button>
+              </div>
               <span className="h2">
                 {partecipante.name} {partecipante.surname}
               </span>
@@ -24,7 +30,7 @@ export default function ParticipantDetailPage() {
                 className="vh-25"
                 src={`/${partecipante.profile_img}`}
                 alt={partecipante.name}
-                style={{ width: '150px', height: '150px', objectFit: 'cover' }}
+                style={{ width: "150px", height: "150px", objectFit: "cover" }}
               />
             </div>
           </div>
@@ -33,17 +39,17 @@ export default function ParticipantDetailPage() {
             <strong>Email: </strong>
             {partecipante.email}
 
-            <i class="bi bi-check-circle-fill text-success mx-2 "></i>
+            <i className="bi bi-check-circle-fill text-success mx-2 "></i>
           </p>
           <p>
             <strong>Telefono: </strong>
             {partecipante.phone}
-            <i class="bi bi-check-circle-fill text-success mx-2 "></i>
+            <i className="bi bi-check-circle-fill text-success mx-2 "></i>
           </p>
           <p>
             <strong>Codice Fiscale: </strong>
             {partecipante.tax_id}
-            <i class="bi bi-check-circle-fill text-success mx-2 "></i>
+            <i className="bi bi-check-circle-fill text-success mx-2 "></i>
           </p>
         </div>
       </div>
