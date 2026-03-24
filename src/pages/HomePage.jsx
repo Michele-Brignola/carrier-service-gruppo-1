@@ -96,7 +96,7 @@ export default function HomePage() {
           <form className="card p-4 mb-4" onSubmit={handleSubmit}>
             <h4 className="mb-3">New Trip</h4>
             <div>
-              <label for="exampleInputEmail1" class="form-label">
+              <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address
               </label>
               <input
@@ -111,7 +111,7 @@ export default function HomePage() {
             </div>
 
             <div>
-              <label for="exampleInputDate" class="form-label">
+              <label htmlFor="exampleInputDate" className="form-label">
                 Start date trip
               </label>
               <input
@@ -125,7 +125,7 @@ export default function HomePage() {
             </div>
 
             <div>
-              <label for="exampleInputEndDate" class="form-label">
+              <label htmlFor="exampleInputEndDate" className="form-label">
                 End date trip
               </label>
 
@@ -140,7 +140,7 @@ export default function HomePage() {
             </div>
 
             <div>
-              <label for="exampleInputImage" class="form-label">
+              <label htmlFor="exampleInputImage" className="form-label">
                 Trip Image
               </label>
               <input
@@ -162,8 +162,8 @@ export default function HomePage() {
         ) : (
           <div className="trip-list mb-4 row g-4">
             {trips.map((trip) => (
-              <div className="trip-list-card col col-4">
-                <div className="card card-item" key={trip.id}>
+              <div className="trip-list-card col col-4" key={trip.id}>
+                <div className="card card-item">
                   <img
                     src={trip.img}
                     className="card-img-top image-trip-list"
