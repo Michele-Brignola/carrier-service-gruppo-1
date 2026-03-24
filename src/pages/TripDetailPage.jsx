@@ -2,6 +2,7 @@ import { dataTrip } from "../data/dataTrip";
 import { useParams} from "react-router";
 import { useState } from "react";
 import { dataParticipant } from "../data/dataParticipant";
+import { Link } from "react-router-dom";
 
 
 export default function TripDetailPage({ onBack }) {
@@ -88,7 +89,9 @@ export default function TripDetailPage({ onBack }) {
       <ul className="list-group">
         {participants.map(p => (
        <li key={p.id} className="list-group-item">
-        {p.name} {p.surname}
+          <Link to={`/participant/${p.id}`}>
+           {p.name} {p.surname}
+          </Link>
        </li>
        ))}
       </ul>
