@@ -75,7 +75,7 @@ export default function TripDetailPage({ onBack }) {
           className="btn btn-outline-primary mb-3"
           onClick={() => setShowForm(!showForm)}
         >
-          {showForm ? "Chiudi Form" : "Aggiungi Partecipante"}
+          {showForm ? "Chiudi" : "Aggiungi Partecipante"}
         </button>
 
         {showForm && (
