@@ -58,3 +58,13 @@ a {
   align-items: center;
   margin: 1.1rem 0;
 }
+
+/* LOADING */
+.loading-alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1.5rem 0;
+}
