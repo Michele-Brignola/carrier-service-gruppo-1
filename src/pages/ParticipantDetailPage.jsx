@@ -13,13 +13,19 @@ export default function ParticipantDetailPage() {
   return (
     <div className="container">
       <div className="row">
-        <div className="mt-2">
+        <div className="my-5">
           <div className="mb-3">
             <div className="mb-2">
               <h1>Dettaglio partecipante</h1>
               <span className="h2">
                 {partecipante.name} {partecipante.surname}
               </span>
+              <img
+                className="vh-25"
+                src={`/${partecipante.profile_img}`}
+                alt={partecipante.name}
+                style={{ width: '150px', height: '150px', objectFit: 'cover' }}
+              />
             </div>
           </div>
 
