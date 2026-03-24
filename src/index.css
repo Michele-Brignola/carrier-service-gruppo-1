@@ -30,8 +30,8 @@ a {
   margin-top: 2rem;
 }
 
-.trip-list-card {
-  width: 30%;
+.card-item {
+  height: 612px;
 }
 
 .card-trip-header {
