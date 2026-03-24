@@ -1,24 +1,37 @@
-import { Link } from 'react-router';
-import { dataTrip } from '../data/dataTrip';
-import { useState } from 'react';
+import { Link } from "react-router";
+import { dataTrip } from "../data/dataTrip";
+import { useState } from "react";
+import Loading from "../components/Loading";
 
 export default function HomePage() {
+  //* useState Constant
+  const [trips, setTrips] = useState(dataTrip);
+  const [showForm, setShowForm] = useState(false);
+
+  //! TEMPORARY BUTTON LOADING COMPONENT
+  const [loadingBtn, setLoadingBtn] = useState(false);
+
+  const pressedLoadingBtn = (e) => {
+    if (loadingBtn) {
+      setLoadingBtn(false);
+    } else {
+      setLoadingBtn(true);
+    }
+  };
+  //!
+
+  //* Change Date Format
   const dateNormalizer = (date) => {
     const originalDate = new Date(date);
     const normalizedData = originalDate.toLocaleDateString();
     return normalizedData;
   };
 
-  //State
-
-  const [trips, setTrips] = useState(dataTrip);
-  const [showForm, setShowForm] = useState(false);
-
   const [formData, setFormData] = useState({
-    destination: '',
-    start_date: '',
-    end_date: '',
-    img: '',
+    destination: "",
+    start_date: "",
+    end_date: "",
+    img: "",
   });
 
   const handleChange = (e) => {
@@ -39,17 +52,17 @@ export default function HomePage() {
       start_date: formData.start_date,
       end_date: formData.end_date,
       img: formData.img,
-      tag: 'new travel',
+      tag: "new travel",
     };
 
     setTrips((prev) => [...prev, newTrip]);
 
     // reset dati
     setFormData({
-      destination: '',
-      start_date: '',
-      end_date: '',
-      img: '',
+      destination: "",
+      start_date: "",
+      end_date: "",
+      img: "",
     });
 
     setShowForm(false);
@@ -60,13 +73,24 @@ export default function HomePage() {
       <div className="container">
         <div className="d-flex justify-content-between align-items-center my-4 me-5">
           <h1>Trip List:</h1>
+          {/* LOADING ALERT */}
 
-          <button
-            className="btn btn-success mr-5"
-            onClick={() => setShowForm((prev) => !prev)}
-          >
-            + Add Trip
-          </button>
+          <div className="homepage-btns">
+            <button
+              className="btn btn-danger me-2"
+              onClick={(e) => {
+                pressedLoadingBtn(e);
+              }}
+            >
+              Loading Test
+            </button>
+            <button
+              className="btn btn-success"
+              onClick={() => setShowForm((prev) => !prev)}
+            >
+              + Add Trip
+            </button>
+          </div>
         </div>
         {showForm && (
           <form className="card p-4 mb-4" onSubmit={handleSubmit}>
@@ -113,44 +137,48 @@ export default function HomePage() {
             <button className="btn btn-primary">Save Trip</button>
           </form>
         )}
-        <div className="trip-list mb-4 row g-4">
-          {trips.map((trip) => (
-            <div className="trip-list-card col col-4">
-              <div className="card " key={trip.id}>
-                <img
-                  src={trip.img}
-                  className="card-img-top image-trip-list"
-                  alt={trip.name}
-                />
-                <div className="card-body">
-                  <div className="card-trip-header">
-                    <h4 className="card-title">{trip.name}</h4>
-                    <span className="badge text-bg-success badge-trip-list">
-                      In Progress
-                    </span>
-                  </div>
-                  <div className="dates-cards">
-                    <div className="start-data-texts text-center">
-                      <span className="trip-title-card">Start Date: </span>
-                      <p className="trip-text-card">
-                        {dateNormalizer(trip.start_date)}
-                      </p>
+        {loadingBtn ? (
+          <Loading />
+        ) : (
+          <div className="trip-list mb-4 row g-4">
+            {trips.map((trip) => (
+              <div className="trip-list-card col col-4">
+                <div className="card card-item" key={trip.id}>
+                  <img
+                    src={trip.img}
+                    className="card-img-top image-trip-list"
+                    alt={trip.name}
+                  />
+                  <div className="card-body">
+                    <div className="card-trip-header">
+                      <h4 className="card-title">{trip.name}</h4>
+                      <span className="badge text-bg-success badge-trip-list">
+                        In Progress
+                      </span>
                     </div>
-                    <div className="end-data-texts text-center">
-                      <span className="trip-title-card">End Date: </span>
-                      <p className="trip-text-card">
-                        {dateNormalizer(trip.end_date)}
-                      </p>
+                    <div className="dates-cards">
+                      <div className="start-data-texts text-center">
+                        <span className="trip-title-card">Start Date: </span>
+                        <p className="trip-text-card">
+                          {dateNormalizer(trip.start_date)}
+                        </p>
+                      </div>
+                      <div className="end-data-texts text-center">
+                        <span className="trip-title-card">End Date: </span>
+                        <p className="trip-text-card">
+                          {dateNormalizer(trip.end_date)}
+                        </p>
+                      </div>
                     </div>
+                    <Link to={`/trip/${trip.id}`} className="btn btn-primary">
+                      See More
+                    </Link>
                   </div>
-                  <Link to={`/trip/${trip.id}`} className="btn btn-primary">
-                    See More
-                  </Link>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
