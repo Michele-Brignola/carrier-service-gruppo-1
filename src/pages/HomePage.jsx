@@ -95,44 +95,64 @@ export default function HomePage() {
         {showForm && (
           <form className="card p-4 mb-4" onSubmit={handleSubmit}>
             <h4 className="mb-3">New Trip</h4>
+            <div>
+              <label for="exampleInputEmail1" class="form-label">
+                Email address
+              </label>
+              <input
+                type="text"
+                name="destination"
+                placeholder="Destinazione"
+                className="form-control mb-3"
+                value={formData.destination}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-            <input
-              type="text"
-              name="destination"
-              placeholder="Destinazione"
-              className="form-control mb-3"
-              value={formData.destination}
-              onChange={handleChange}
-              required
-            />
+            <div>
+              <label for="exampleInputDate" class="form-label">
+                Start date trip
+              </label>
+              <input
+                type="date"
+                name="start_date"
+                className="form-control mb-3"
+                value={formData.start_date}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-            <input
-              type="date"
-              name="start_date"
-              className="form-control mb-3"
-              value={formData.start_date}
-              onChange={handleChange}
-              required
-            />
+            <div>
+              <label for="exampleInputEndDate" class="form-label">
+                End date trip
+              </label>
 
-            <input
-              type="date"
-              name="end_date"
-              className="form-control mb-3"
-              value={formData.end_date}
-              onChange={handleChange}
-              required
-            />
+              <input
+                type="date"
+                name="end_date"
+                className="form-control mb-3"
+                value={formData.end_date}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-            <input
-              type="text"
-              name="img"
-              placeholder="URL immagine"
-              className="form-control mb-3"
-              value={formData.img}
-              onChange={handleChange}
-              required
-            />
+            <div>
+              <label for="exampleInputImage" class="form-label">
+                Trip Image
+              </label>
+              <input
+                type="text"
+                name="img"
+                placeholder="URL immagine"
+                className="form-control mb-3"
+                value={formData.img}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
             <button className="btn btn-primary">Save Trip</button>
           </form>
