@@ -1,5 +1,5 @@
 import { dataTrip } from "../data/dataTrip";
-import { useParams} from "react-router-dom";
+import { useParams} from "react-router";
 import { useState } from "react";
 import { dataParticipant } from "../data/dataParticipant";
 
