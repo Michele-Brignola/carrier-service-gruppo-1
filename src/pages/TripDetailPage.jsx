@@ -10,6 +10,7 @@ export default function TripDetailPage({ onBack }) {
     p.id_trip.includes(Number(id)),
   );
   const [participants, setParticipants] = useState(participantsForTrip);
+  const [showForm, setShowForm] = useState(false);
   let goBack = useNavigate();
 
   // trova il viaggio tramite id
@@ -70,59 +71,72 @@ export default function TripDetailPage({ onBack }) {
       {/* Placeholder partecipanti */}
       <div className="mt-4">
         <h4 className="mb-4">Participants</h4>
-
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-
-            const name = e.target.name.value;
-
-            const newId = Math.max(...participants.map((p) => p.id)) + 1;
-
-            const newParticipant = {
-              id: newId,
-              name,
-              surname: "", // opzionale
-              id_trip: [Number(id)],
-            };
-
-            setParticipants([...participants, newParticipant]);
-
-            e.target.reset();
-          }}
-          className="mb-3"
+        <button
+          className="btn btn-outline-primary mb-3"
+          onClick={() => setShowForm(!showForm)}
         >
-          <input
-            type="text"
-            name="name"
-            placeholder="Nome e Cognome partecipante"
-            className="form-control mb-2"
-          />
+          {showForm ? "Chiudi Form" : "Aggiungi Partecipante"}
+        </button>
 
-          <button className="btn btn-primary">Aggiungi</button>
-        </form>
+        {showForm && (
+  <form
+    onSubmit={(e) => {
+      e.preventDefault();
 
-        <ul className="list-group mt-3">
-          {participants.map((p) => (
-            <li
-              key={p.id}
-              className="list-group-item list-group-item-action p-3"
-            >
-              <small className="fw-bold">Name and Surname:</small>
-              <Link
-                to={`/participant/${p.id}`}
-                style={{
-                  textDecoration: "none",
-                  color: "inherit",
-                  display: "block",
-                  fontSize: "1.2rem",
-                }}
-              >
-                {p.name} {p.surname}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      const name = e.target.name.value;
+
+      const newId =
+        participants.length > 0
+          ? Math.max(...participants.map((p) => p.id)) + 1
+          : 1;
+
+      const newParticipant = {
+        id: newId,
+        name,
+        surname: "",
+        id_trip: [Number(id)],
+      };
+
+      setParticipants([...participants, newParticipant]);
+
+      e.target.reset();
+      setShowForm(false);
+    }}
+    className="mb-3"
+  >
+    <input
+      type="text"
+      name="name"
+      placeholder="Nome e Cognome partecipante"
+      className="form-control mb-2"
+    />
+
+    <button className="btn btn-primary">Aggiungi</button>
+  </form>
+)}
+
+<ul className="list-group mt-3">
+  {participants.map((p) => (
+    <li
+      key={p.id}
+      className="list-group-item list-group-item-action p-3"
+    >
+      <small className="fw-bold">Name and Surname:</small>
+
+      <Link
+        to={`/participant/${p.id}`}
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          display: "block",
+          fontSize: "1.2rem",
+        }}
+      >
+        {p.name} {p.surname}
+      </Link>
+    </li>
+  ))}
+</ul>
       </div>
     </div>
   );
