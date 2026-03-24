@@ -88,11 +88,13 @@ export default function TripDetailPage({ onBack }) {
 
       <ul className="list-group">
         {participants.map(p => (
-       <li key={p.id} className="list-group-item">
+       
           <Link to={`/participant/${p.id}`}>
+          <li key={p.id} className="list-group-item">
            {p.name} {p.surname}
+          </li>
           </Link>
-       </li>
+       
        ))}
       </ul>
       </div>
