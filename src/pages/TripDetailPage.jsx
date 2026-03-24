@@ -1,10 +1,13 @@
 import { dataTrip } from "../data/dataTrip";
-import { useParams} from "react-router";
+import { useParams} from "react-router-dom";
+import { useState } from "react";
 import { dataParticipant } from "../data/dataParticipant";
+
 
 export default function TripDetailPage({ onBack }) {
   const { id } = useParams();
  const participantsForTrip = dataParticipant.filter(p => p.id_trip.includes(Number(id)));
+  const [participants, setParticipants] = useState(participantsForTrip);
 
  
 
@@ -65,7 +68,7 @@ export default function TripDetailPage({ onBack }) {
          name
         };
 
-       newParticipant([...participantsForTrip, newParticipant]);
+        setParticipants([...participants, newParticipant]);
 
         e.target.reset();
         }}
@@ -83,7 +86,7 @@ export default function TripDetailPage({ onBack }) {
       </form>
 
       <ul className="list-group">
-        {participantsForTrip.map(p => (
+        {participants.map(p => (
        <li key={p.id} className="list-group-item">
         {p.name} {p.surname}
        </li>
