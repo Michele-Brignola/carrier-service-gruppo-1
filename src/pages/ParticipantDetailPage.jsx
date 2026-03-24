@@ -13,7 +13,7 @@ export default function ParticipantDetailPage() {
   return (
     <div className="container">
       <div className="row">
-        <div>
+        <div className="mt-2">
           <div className="mb-3">
             <div className="mb-2">
               <h1>Dettaglio partecipante</h1>
