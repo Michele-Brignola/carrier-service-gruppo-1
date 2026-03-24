@@ -1,7 +1,12 @@
 import { dataTrip } from "../data/dataTrip";
 import { useParams} from "react-router";
+import { useState } from "react";
+
 export default function TripDetailPage({ onBack }) {
   const { id } = useParams();
+
+  // stato per partecipanti
+  const [participants, setParticipants] = useState([]); 
 
   // trova il viaggio tramite id
   const viaggio = dataTrip.find(v => v.id === Number(id));
@@ -48,11 +53,45 @@ export default function TripDetailPage({ onBack }) {
       {/* Placeholder partecipanti */}
       <div className="mt-4">
         <h4>Partecipanti</h4>
-        <p className="text-muted">
-          (In attesa di collegamento con i partecipanti)
-        </p>
+
+      <form 
+        onSubmit={(e) => {
+        e.preventDefault();
+    
+       const name = e.target.name.value;
+    
+       const newParticipant = {
+        id: Date.now(),
+         name
+        };
+
+       setParticipants([...participants, newParticipant]);
+
+        e.target.reset();
+        }}
+        className="mb-3"
+      >
+      <input 
+      type="text" 
+      name="name" 
+      placeholder="Nome e Cognome partecipante" 
+      className="form-control mb-2"
+      />
+  
+      <button className="btn btn-primary">Aggiungi</button>
+      
+      </form>
+
+      <ul className="list-group">
+       
+       {participants.map(p => (
+      
+      <li key={p.id} className="list-group-item">{p.name}</li>
+      
+      ))}
+      </ul>
       </div>
 
-    </div>
-  );
-}
+     </div>
+    );
+    }
