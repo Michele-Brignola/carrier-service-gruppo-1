@@ -41,6 +41,11 @@ export default function TripDetailPage({ onBack }) {
           src={`/${viaggio.img}`} 
           alt={viaggio.name} 
           className="img-fluid mb-3"
+          style={{
+            height: "300px",
+            width: "100%",
+            objectFit: "cover",
+          }}
          />
 
           <p className="card-text">
