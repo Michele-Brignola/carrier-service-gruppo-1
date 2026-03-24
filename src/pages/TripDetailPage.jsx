@@ -28,7 +28,7 @@ export default function TripDetailPage({ onBack }) {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 mb-4">
       {/* Bottone torna */}
       {onBack && (
         <button className="btn btn-secondary mb-3" onClick={onBack}>
@@ -77,9 +77,13 @@ export default function TripDetailPage({ onBack }) {
 
             const name = e.target.name.value;
 
+            const newId = Math.max(...participants.map((p) => p.id)) + 1;
+
             const newParticipant = {
-              id: Date.now(),
+              id: newId,
               name,
+              surname: "", // opzionale
+              id_trip: [Number(id)],
             };
 
             setParticipants([...participants, newParticipant]);
