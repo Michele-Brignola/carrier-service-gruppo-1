@@ -2,7 +2,7 @@ import { dataTrip } from "../data/dataTrip";
 import { useParams} from "react-router";
 import { useState } from "react";
 import { dataParticipant } from "../data/dataParticipant";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 
 export default function TripDetailPage({ onBack }) {
