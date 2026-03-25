@@ -25,7 +25,7 @@ export default function ParticipantDetailPage() {
               </div>
               <div class="card p-3" style={{ width: '450px' }}>
                 <img
-                  class="card-img-top"
+                  class="card-img-top rounded-circle"
                   src={`/${partecipante.profile_img}`}
                   alt="Card image cap"
                   style={{
