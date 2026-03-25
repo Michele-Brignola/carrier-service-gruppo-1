@@ -117,14 +117,14 @@ export default function TripDetailPage({ onBack }) {
     <input
      type="email"
      name="email"
-     placeholder="Email"
+     placeholder="Email (Es: mario.rossi@example.com)"
      className="form-control mb-2"
      />
 
     <input
      type="text"
      name="phone"
-     placeholder="Phone number"
+     placeholder="Phone number (Es: +39 123 456 7890)"
      className="form-control mb-2"
     />
 
