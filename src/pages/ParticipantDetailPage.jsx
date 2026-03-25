@@ -45,12 +45,12 @@ export default function ParticipantDetailPage() {
                     <i className="bi bi-check-circle-fill text-success mx-2 "></i>
                   </p>
                   <p className="card-text">
-                    <strong>Telefono: </strong>
+                    <strong>Phone: </strong>
                     {partecipante.phone}
                     <i className="bi bi-check-circle-fill text-success mx-2 "></i>
                   </p>
                   <p className="card-text">
-                    <strong>Codice Fiscale: </strong>
+                    <strong>Tax Id: </strong>
                     {partecipante.tax_id}
                     <i className="bi bi-check-circle-fill text-success mx-2 "></i>
                   </p>
