@@ -149,8 +149,7 @@ export default function TripDetailPage({ participants, setParticipants, onBack }
         }}
       >
         <p className="mb-1">{p.name} {p.surname}</p>
-        <small>Email: {p.email}</small><br />
-        <small>Phone: {p.phone}</small>
+        
       </Link>
     </li>
   ))}
