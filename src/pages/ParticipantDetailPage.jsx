@@ -34,7 +34,7 @@ export default function ParticipantDetailPage() {
                     objectFit: 'cover',
                   }}
                 />
-                <div class="card-body">
+                <div class="card-body mt-1 ps-0">
                   <h5 class="card-title">
                     {partecipante.name} {partecipante.surname}
                   </h5>
