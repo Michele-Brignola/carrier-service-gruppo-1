@@ -51,7 +51,7 @@ export default function TripDetailPage({
           </div>
 
           <img
-            src={`/${viaggio.img}`}
+            src={`${viaggio.img}`}
             alt={viaggio.name}
             className="img-fluid mb-3 rounded"
             style={{
@@ -86,6 +86,7 @@ export default function TripDetailPage({
               e.preventDefault();
 
               const name = e.target.name.value;
+              const surname = e.target.surname.value;
               const email = e.target.email.value;
               const phone = e.target.phone.value;
 
@@ -97,7 +98,7 @@ export default function TripDetailPage({
               const newParticipant = {
                 id: newId,
                 name,
-                surname: "",
+                surname,
                 profile_img: "defaultProfileImg.png",
                 email,
                 phone,
@@ -113,7 +114,13 @@ export default function TripDetailPage({
             <input
               type="text"
               name="name"
-              placeholder="Nome e Cognome (Es: Mario Rossi)"
+              placeholder="Nome (Es: Mario)"
+              className="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="surname"
+              placeholder="Cognome (Es: Rossi)"
               className="form-control mb-2"
             />
             <input

@@ -80,14 +80,12 @@ export default function HomePage() {
               className="btn btn-danger me-2"
               onClick={(e) => {
                 pressedLoadingBtn(e);
-              }}
-            >
+              }}>
               Loading Test
             </button>
             <button
               className="btn btn-success"
-              onClick={() => setShowForm((prev) => !prev)}
-            >
+              onClick={() => setShowForm((prev) => !prev)}>
               + Add Trip
             </button>
           </div>
@@ -97,12 +95,12 @@ export default function HomePage() {
             <h4 className="mb-3">New Trip</h4>
             <div>
               <label htmlFor="exampleInputEmail1" className="form-label">
-                Email address
+                Destination Name
               </label>
               <input
                 type="text"
                 name="destination"
-                placeholder="Destinazione"
+                placeholder="Destination Name"
                 className="form-control mb-3"
                 value={formData.destination}
                 onChange={handleChange}
@@ -146,7 +144,7 @@ export default function HomePage() {
               <input
                 type="text"
                 name="img"
-                placeholder="URL immagine"
+                placeholder="URL immage"
                 className="form-control mb-3"
                 value={formData.img}
                 onChange={handleChange}
