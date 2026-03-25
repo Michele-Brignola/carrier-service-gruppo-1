@@ -8,7 +8,7 @@ export default function ParticipantDetailPage() {
   const partecipante = dataParticipant.find((p) => p.id === parseInt(id));
 
   if (!partecipante) {
-    return <h2>Partecipante non trovato</h2>;
+    return <h2>Partecipant not found</h2>;
   }
 
   return (
@@ -18,7 +18,7 @@ export default function ParticipantDetailPage() {
           <div className="mb-3">
             <div className="mb-2">
               <div className="d-flex justify-content-between align-items-center">
-                <h1 className="mb-4">Dettaglio partecipante</h1>
+                <h1 className="mb-4">Participant detail</h1>
                 <button className="btn btn-primary" onClick={() => goBack(-1)}>
                   Go Back
                 </button>
