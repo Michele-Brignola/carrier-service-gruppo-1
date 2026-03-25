@@ -8,7 +8,7 @@ export default function ParticipantDetailPage() {
   const partecipante = dataParticipant.find((p) => p.id === parseInt(id));
 
   if (!partecipante) {
-    return <h2>Partecipante non trovato</h2>;
+    return <h2>Partecipant not found</h2>;
   }
 
   return (
@@ -18,7 +18,7 @@ export default function ParticipantDetailPage() {
           <div className="mb-3">
             <div className="mb-2">
               <div className="d-flex justify-content-between align-items-center">
-                <h1 className="mb-4">Dettaglio partecipante</h1>
+                <h1 className="mb-4">Participant detail</h1>
                 <button className="btn btn-primary" onClick={() => goBack(-1)}>
                   Go Back
                 </button>
@@ -34,7 +34,7 @@ export default function ParticipantDetailPage() {
                     objectFit: 'cover',
                   }}
                 />
-                <div class="card-body">
+                <div class="card-body mt-1 ps-0">
                   <h5 class="card-title">
                     {partecipante.name} {partecipante.surname}
                   </h5>
@@ -45,12 +45,12 @@ export default function ParticipantDetailPage() {
                     <i className="bi bi-check-circle-fill text-success mx-2 "></i>
                   </p>
                   <p className="card-text">
-                    <strong>Telefono: </strong>
+                    <strong>Phone: </strong>
                     {partecipante.phone}
                     <i className="bi bi-check-circle-fill text-success mx-2 "></i>
                   </p>
                   <p className="card-text">
-                    <strong>Codice Fiscale: </strong>
+                    <strong>Tax Id: </strong>
                     {partecipante.tax_id}
                     <i className="bi bi-check-circle-fill text-success mx-2 "></i>
                   </p>
