@@ -58,6 +58,7 @@ export default function TripDetailPage({
               height: "300px",
               width: "100%",
               objectFit: "cover",
+              objectPosition: "bottom",
             }}
           />
 
@@ -76,7 +77,8 @@ export default function TripDetailPage({
         <h4 className="mb-4">Participants</h4>
         <button
           className="btn btn-primary mb-3"
-          onClick={() => setShowForm(!showForm)}>
+          onClick={() => setShowForm(!showForm)}
+        >
           {showForm ? "Close" : "Add Participant"}
         </button>
 
@@ -110,7 +112,8 @@ export default function TripDetailPage({
               e.target.reset();
               setShowForm(false);
             }}
-            className="mb-3">
+            className="mb-3"
+          >
             <input
               type="text"
               name="name"
@@ -145,7 +148,8 @@ export default function TripDetailPage({
           {participantsForTrip.map((p) => (
             <li
               key={p.id}
-              className="list-group-item list-group-item-action p-3">
+              className="list-group-item list-group-item-action p-3"
+            >
               <small className="fw-bold">Name and Surname:</small>
 
               <Link
@@ -155,7 +159,8 @@ export default function TripDetailPage({
                   color: "inherit",
                   display: "block",
                   fontSize: "1.2rem",
-                }}>
+                }}
+              >
                 <p className="mb-1">
                   {p.name} {p.surname}
                 </p>
