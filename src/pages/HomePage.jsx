@@ -51,7 +51,7 @@ export default function HomePage() {
       name: formData.destination,
       start_date: formData.start_date,
       end_date: formData.end_date,
-      img: formData.img,
+      url_image: formData.img,
       tag: "new travel",
     };
 
@@ -80,12 +80,14 @@ export default function HomePage() {
               className="btn btn-danger me-2"
               onClick={(e) => {
                 pressedLoadingBtn(e);
-              }}>
+              }}
+            >
               Loading Test
             </button>
             <button
               className="btn btn-success"
-              onClick={() => setShowForm((prev) => !prev)}>
+              onClick={() => setShowForm((prev) => !prev)}
+            >
               + Add Trip
             </button>
           </div>
@@ -94,10 +96,11 @@ export default function HomePage() {
           <form className="card p-4 mb-4" onSubmit={handleSubmit}>
             <h4 className="mb-3">New Trip</h4>
             <div>
-              <label htmlFor="exampleInputEmail1" className="form-label">
+              <label htmlFor="destination_name" className="form-label">
                 Destination Name
               </label>
               <input
+                id="destination_name"
                 type="text"
                 name="destination"
                 placeholder="Destination Name"
@@ -109,10 +112,11 @@ export default function HomePage() {
             </div>
 
             <div>
-              <label htmlFor="exampleInputDate" className="form-label">
+              <label htmlFor="start_date" className="form-label">
                 Start date trip
               </label>
               <input
+                id="start_date"
                 type="date"
                 name="start_date"
                 className="form-control mb-3"
@@ -123,11 +127,12 @@ export default function HomePage() {
             </div>
 
             <div>
-              <label htmlFor="exampleInputEndDate" className="form-label">
+              <label htmlFor="end_date" className="form-label">
                 End date trip
               </label>
 
               <input
+                id="end_date"
                 type="date"
                 name="end_date"
                 className="form-control mb-3"
@@ -138,13 +143,14 @@ export default function HomePage() {
             </div>
 
             <div>
-              <label htmlFor="exampleInputImage" className="form-label">
+              <label htmlFor="trip_image" className="form-label">
                 Trip Image
               </label>
               <input
+                id="trip_image"
                 type="text"
                 name="img"
-                placeholder="URL immage"
+                placeholder="URL image"
                 className="form-control mb-3"
                 value={formData.img}
                 onChange={handleChange}
@@ -163,7 +169,7 @@ export default function HomePage() {
               <div className="trip-list-card col col-4" key={trip.id}>
                 <div className="card card-item shadow-sm">
                   <img
-                    src={trip.img}
+                    src={trip.url_image ? `${trip.url_image}` : `/${trip.img}`}
                     className="card-img-top image-trip-list"
                     alt={trip.name}
                   />

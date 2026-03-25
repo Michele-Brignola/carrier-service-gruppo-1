@@ -1,5 +1,5 @@
-import { useNavigate, useParams } from 'react-router';
-import { dataParticipant } from '../data/dataParticipant';
+import { useNavigate, useParams } from "react-router";
+import { dataParticipant } from "../data/dataParticipant";
 
 export default function ParticipantDetailPage() {
   const { id } = useParams();
@@ -18,24 +18,30 @@ export default function ParticipantDetailPage() {
           <div className="mb-3">
             <div className="mb-2">
               <div className="d-flex justify-content-between align-items-center">
-                <h1 className="mb-4">Participant detail</h1>
+                <h1 className="mb-4">
+                  Participant detail: {partecipante.name} {partecipante.surname}
+                </h1>
                 <button className="btn btn-primary" onClick={() => goBack(-1)}>
                   Go Back
                 </button>
               </div>
-              <div class="card p-3" style={{ width: '450px' }}>
+              <div className="card p-3" style={{ width: "450px" }}>
                 <img
-                  class="card-img-top rounded-circle"
-                  src={`/${partecipante.profile_img}`}
+                  className="card-img-top rounded-circle"
+                  src={
+                    partecipante.url_profile_img
+                      ? `${partecipante.url_profile_img}`
+                      : `/${partecipante.profile_img}`
+                  }
                   alt="Card image cap"
                   style={{
-                    width: '150px',
-                    height: '150px',
-                    objectFit: 'cover',
+                    width: "150px",
+                    height: "150px",
+                    objectFit: "cover",
                   }}
                 />
-                <div class="card-body mt-1 ps-0">
-                  <h5 class="card-title">
+                <div className="card-body mt-1 ps-0">
+                  <h5 className="card-title">
                     {partecipante.name} {partecipante.surname}
                   </h5>
                   <p className="card-text">
