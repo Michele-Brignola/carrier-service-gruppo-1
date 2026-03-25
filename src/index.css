@@ -19,6 +19,11 @@ a {
   text-decoration: none;
 }
 
+/* HEADER */
+.header-title {
+  text-shadow: 1px 1px 7px #252424;
+}
+
 /* HOMEPAGE TRIP LIST */
 .image-trip-list {
   width: 100%;

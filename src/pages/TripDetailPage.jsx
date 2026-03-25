@@ -15,6 +15,8 @@ export default function TripDetailPage({
   );
   const [showForm, setShowForm] = useState(false);
   let goBack = useNavigate();
+  const [participantList, setParticipantList] = useState(participantsForTrip);
+  const [searchInputValue, setSearchInputValue] = useState("");
 
   // trova il trip tramite id
   const trip = dataTrip.find((v) => v.id === Number(id));
@@ -30,6 +32,12 @@ export default function TripDetailPage({
     const normalizedData = originalDate.toLocaleDateString();
     return normalizedData;
   };
+
+  //* Search Participant
+  const filteredParticipants = participantsForTrip.filter((participant) => {
+    const fullname = `${participant.name} ${participant.surname}`.toLowerCase();
+    return fullname.includes(searchInputValue.toLowerCase());
+  });
 
   return (
     <div className="container mt-4 mb-4">
@@ -67,14 +75,15 @@ export default function TripDetailPage({
 
       {/* Placeholder partecipanti */}
       <div className="mt-4">
-        <h4 className="mb-4">Participants</h4>
-        <button
-          className="btn btn-primary mb-3"
-          onClick={() => setShowForm(!showForm)}
-        >
-          {showForm ? "Close" : "Add Participant"}
-        </button>
-
+        <div className="justify-content-between d-flex align-items-center">
+          <h4 className="mb-4">Participants</h4>
+          <button
+            className="btn btn-success mb-3"
+            onClick={() => setShowForm(!showForm)}
+          >
+            Add Participant
+          </button>
+        </div>
         {showForm && (
           <form
             onSubmit={(e) => {
@@ -177,8 +186,18 @@ export default function TripDetailPage({
           </form>
         )}
 
+        <input
+          onChange={(e) => {
+            setSearchInputValue(e.target.value);
+          }}
+          value={searchInputValue}
+          type="text"
+          name="search_participant"
+          placeholder="Search Participant"
+          className="form-control mb-3"
+        />
         <ul className="list-group mt-3">
-          {participantsForTrip.map((p) => (
+          {filteredParticipants.map((p) => (
             <li
               key={p.id}
               className="list-group-item list-group-item-action p-3"
