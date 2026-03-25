@@ -84,6 +84,8 @@ export default function TripDetailPage({ onBack }) {
       e.preventDefault();
 
       const name = e.target.name.value;
+      const email = e.target.email.value;
+      const phone = e.target.phone.value;
 
       const newId =
         participants.length > 0
@@ -91,10 +93,12 @@ export default function TripDetailPage({ onBack }) {
           : 1;
 
       const newParticipant = {
-        id: newId,
-        name,
-        surname: "",
-        id_trip: [Number(id)],
+       id: newId,
+       name,
+       surname: "",
+       email,
+       phone,
+       id_trip: [Number(id)],
       };
 
       setParticipants([...participants, newParticipant]);
@@ -107,8 +111,21 @@ export default function TripDetailPage({ onBack }) {
     <input
       type="text"
       name="name"
-      placeholder="Nome e Cognome partecipante"
+      placeholder="Nome e Cognome (Es: Mario Rossi)"
       className="form-control mb-2"
+    />
+    <input
+     type="email"
+     name="email"
+     placeholder="Email"
+     className="form-control mb-2"
+     />
+
+    <input
+     type="text"
+     name="phone"
+     placeholder="Phone number"
+     className="form-control mb-2"
     />
 
     <button className="btn btn-primary">Add Participant</button>
@@ -123,6 +140,7 @@ export default function TripDetailPage({ onBack }) {
     >
       <small className="fw-bold">Name and Surname:</small>
 
+
       <Link
         to={`/participant/${p.id}`}
         style={{
@@ -132,7 +150,9 @@ export default function TripDetailPage({ onBack }) {
           fontSize: "1.2rem",
         }}
       >
-        {p.name} {p.surname}
+        <p className="mb-1">{p.name} {p.surname}</p>
+        <small>Email: {p.email}</small><br />
+        <small>Phone: {p.phone}</small>
       </Link>
     </li>
   ))}
