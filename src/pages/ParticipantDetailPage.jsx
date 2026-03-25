@@ -1,5 +1,5 @@
-import { useNavigate, useParams } from "react-router";
-import { dataParticipant } from "../data/dataParticipant";
+import { useNavigate, useParams } from 'react-router';
+import { dataParticipant } from '../data/dataParticipant';
 
 export default function ParticipantDetailPage() {
   const { id } = useParams();
@@ -23,34 +23,41 @@ export default function ParticipantDetailPage() {
                   Go Back
                 </button>
               </div>
-              <span className="h2">
-                {partecipante.name} {partecipante.surname}
-              </span>
-              <img
-                className="vh-25"
-                src={`/${partecipante.profile_img}`}
-                alt={partecipante.name}
-                style={{ width: "150px", height: "150px", objectFit: "cover" }}
-              />
+              <div class="card p-3" style={{ width: '450px' }}>
+                <img
+                  class="card-img-top"
+                  src={`/${partecipante.profile_img}`}
+                  alt="Card image cap"
+                  style={{
+                    width: '150px',
+                    height: '150px',
+                    objectFit: 'cover',
+                  }}
+                />
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {partecipante.name} {partecipante.surname}
+                  </h5>
+                  <p className="card-text">
+                    <strong>Email: </strong>
+                    {partecipante.email}
+
+                    <i className="bi bi-check-circle-fill text-success mx-2 "></i>
+                  </p>
+                  <p className="card-text">
+                    <strong>Telefono: </strong>
+                    {partecipante.phone}
+                    <i className="bi bi-check-circle-fill text-success mx-2 "></i>
+                  </p>
+                  <p className="card-text">
+                    <strong>Codice Fiscale: </strong>
+                    {partecipante.tax_id}
+                    <i className="bi bi-check-circle-fill text-success mx-2 "></i>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-
-          <p>
-            <strong>Email: </strong>
-            {partecipante.email}
-
-            <i className="bi bi-check-circle-fill text-success mx-2 "></i>
-          </p>
-          <p>
-            <strong>Telefono: </strong>
-            {partecipante.phone}
-            <i className="bi bi-check-circle-fill text-success mx-2 "></i>
-          </p>
-          <p>
-            <strong>Codice Fiscale: </strong>
-            {partecipante.tax_id}
-            <i className="bi bi-check-circle-fill text-success mx-2 "></i>
-          </p>
         </div>
       </div>
     </div>
