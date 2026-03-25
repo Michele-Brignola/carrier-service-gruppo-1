@@ -163,7 +163,7 @@ export default function HomePage() {
           <div className="trip-list mb-4 row g-4">
             {trips.map((trip) => (
               <div className="trip-list-card col col-4" key={trip.id}>
-                <div className="card card-item">
+                <div className="card card-item shadow-sm">
                   <img
                     src={trip.img}
                     className="card-img-top image-trip-list"
