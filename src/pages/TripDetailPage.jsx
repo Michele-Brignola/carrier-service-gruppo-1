@@ -1,13 +1,18 @@
 import { dataTrip } from "../data/dataTrip";
+import { dataParticipant } from "../data/dataParticipant";
 import { useNavigate, useParams } from "react-router";
 import { useState } from "react";
 import { Link } from "react-router";
 
-export default function TripDetailPage({ participants, setParticipants, onBack }) {
+export default function TripDetailPage({
+  participants,
+  setParticipants,
+  onBack,
+}) {
   const { id } = useParams();
   const participantsForTrip = participants.filter((p) =>
-  p.id_trip.includes(Number(id))
-);
+    p.id_trip.includes(Number(id)),
+  );
   const [showForm, setShowForm] = useState(false);
   let goBack = useNavigate();
 
@@ -71,89 +76,86 @@ export default function TripDetailPage({ participants, setParticipants, onBack }
         <h4 className="mb-4">Participants</h4>
         <button
           className="btn btn-primary mb-3"
-          onClick={() => setShowForm(!showForm)}
-        >
+          onClick={() => setShowForm(!showForm)}>
           {showForm ? "Close" : "Add Participant"}
         </button>
 
         {showForm && (
-  <form
-    onSubmit={(e) => {
-      e.preventDefault();
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
 
-      const name = e.target.name.value;
-      const email = e.target.email.value;
-      const phone = e.target.phone.value;
+              const name = e.target.name.value;
+              const email = e.target.email.value;
+              const phone = e.target.phone.value;
 
-      const newId =
-        participants.length > 0
-          ? Math.max(...participants.map((p) => p.id)) + 1
-          : 1;
+              const newId =
+                participants.length > 0
+                  ? Math.max(...participants.map((p) => p.id)) + 1
+                  : 1;
 
-      const newParticipant = {
-       id: newId,
-       name,
-       surname: "",
-       email,
-       phone,
-       id_trip: [Number(id)],
-      };
+              const newParticipant = {
+                id: newId,
+                name,
+                surname: "",
+                profile_img: "defaultProfileImg.png",
+                email,
+                phone,
+                id_trip: [Number(id)],
+              };
 
-      setParticipants([...participants, newParticipant]);
+              dataParticipant.push(newParticipant);
 
-      e.target.reset();
-      setShowForm(false);
-    }}
-    className="mb-3"
-  >
-    <input
-      type="text"
-      name="name"
-      placeholder="Nome e Cognome (Es: Mario Rossi)"
-      className="form-control mb-2"
-    />
-    <input
-     type="email"
-     name="email"
-     placeholder="Email (Es: mario.rossi@example.com)"
-     className="form-control mb-2"
-     />
+              e.target.reset();
+              setShowForm(false);
+            }}
+            className="mb-3">
+            <input
+              type="text"
+              name="name"
+              placeholder="Nome e Cognome (Es: Mario Rossi)"
+              className="form-control mb-2"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email (Es: mario.rossi@example.com)"
+              className="form-control mb-2"
+            />
 
-    <input
-     type="text"
-     name="phone"
-     placeholder="Phone number (Es: +39 123 456 7890)"
-     className="form-control mb-2"
-    />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone number (Es: +39 123 456 7890)"
+              className="form-control mb-2"
+            />
 
-    <button className="btn btn-primary">Add Participant</button>
-  </form>
-)}
+            <button className="btn btn-primary">Add Participant</button>
+          </form>
+        )}
 
-<ul className="list-group mt-3">
-  {participantsForTrip.map((p) => (
-    <li
-      key={p.id}
-      className="list-group-item list-group-item-action p-3"
-    >
-      <small className="fw-bold">Name and Surname:</small>
+        <ul className="list-group mt-3">
+          {participantsForTrip.map((p) => (
+            <li
+              key={p.id}
+              className="list-group-item list-group-item-action p-3">
+              <small className="fw-bold">Name and Surname:</small>
 
-
-      <Link
-        to={`/participant/${p.id}`}
-        style={{
-          textDecoration: "none",
-          color: "inherit",
-          display: "block",
-          fontSize: "1.2rem",
-        }}
-      >
-        <p className="mb-1">{p.name} {p.surname}</p>
-        
-      </Link>
-    </li>
-  ))}
-</ul>
+              <Link
+                to={`/participant/${p.id}`}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  display: "block",
+                  fontSize: "1.2rem",
+                }}>
+                <p className="mb-1">
+                  {p.name} {p.surname}
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
