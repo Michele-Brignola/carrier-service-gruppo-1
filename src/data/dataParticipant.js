@@ -24,7 +24,7 @@ export const dataParticipant = [
     id_trip: [1],
     name: 'Marco',
     surname: 'Ferretti',
-    profile_img: 'public/.png',
+    profile_img: 'public/defaultProfileImg.png',
     email: 'marco.ferretti@outlook.com',
     phone: '+39 3389876543',
     tax_id: 'FRRMRC78T10L219K',
